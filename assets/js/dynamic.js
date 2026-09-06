@@ -38,9 +38,9 @@
         '<a class="eos-stickybar__logo" href="index.html">' +
           /* DF360 leads the lockup, then Apex MD -- the reverse of the
              EoS original, per the DF360 brand package. */
-          '<img src="img/df360/logo-df360-dark.svg" alt="" width="300" height="47">' +
+          '<img src="img/df360/logo-df360-grey.webp" alt="" width="900" height="555">' +
           '<span>Powered by</span>' +
-          '<img src="img/logo-apex-green-dark.png" alt="" width="1784" height="477">' +
+          '<img src="img/df360/logo-apex-dark.webp" alt="" width="900" height="241">' +
         '</a>' +
         '<a class="btn btn-primary eos-stickybar__cta" data-intake="body-scan" ' +
            'href="https://formdf360.apexmd.com/?categoryId=bloodwork" target="_blank" rel="noopener">Claim your offer</a>' +
