@@ -1,0 +1,1038 @@
+/* =========================================================
+   DF360 × APEX MD — Brand CSS
+   Tokens per DF360-Package/README.md
+   ========================================================= */
+
+/* ---------- Brand Variables ---------- */
+:root {
+  --spg-black: #101010;          /* dark ground */
+  --spg-charcoal: #1A1A1A;
+  --spg-gray-900: #242424;
+  --spg-gray-700: #595959;
+  --spg-gray-500: #8C8C8C;
+  --spg-gray-300: #D9D9D9;
+  --spg-gray-200: #E9E7E1;       /* desk */
+  --spg-gray-100: #F5F2ED;       /* light ground */
+  --spg-white: #FFFFFF;
+
+  /* Accent — DF360 green.
+     --spg-green    : deep tone. CTA fills, and green TEXT on light grounds.
+     --spg-green-bright / -light : vivid tones. Use ONLY on dark grounds;
+     #FF3B4A on white is ~1.9:1 and fails contrast. */
+  --spg-green: #DE192C;
+  --spg-green-dark: #B3121F;
+  --spg-green-bright: #FF3B4A;
+  --spg-green-light: #FF8A92;
+
+  --spg-font-display: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  --spg-font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --spg-font-mono: Menlo, "SF Mono", ui-monospace, Consolas, monospace;
+
+  --spg-radius-sm: 10px;
+  --spg-radius-md: 18px;
+  --spg-radius-lg: 28px;
+  --spg-radius-pill: 999px;
+
+  --spg-shadow: 0 18px 50px rgba(0, 0, 0, 0.10);
+  --spg-shadow-hover: 0 24px 70px rgba(0, 0, 0, 0.16);
+
+  --spg-container: 1240px;
+  --spg-section-space: clamp(72px, 9vw, 140px);
+  --spg-transition: 220ms ease;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--spg-white);
+  color: var(--spg-black);
+  font-family: var(--spg-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ---------- Layout ---------- */
+.spg-container {
+  width: 100%;
+  max-width: calc(var(--spg-container) + 80px);
+  padding-inline: 40px;
+  margin-inline: auto;
+}
+
+.spg-section {
+  padding-block: var(--spg-section-space);
+}
+
+.spg-section--tight {
+  padding-block: clamp(48px, 6vw, 88px);
+}
+
+.spg-section--dark {
+  background: var(--spg-black);
+  color: var(--spg-white);
+}
+
+.spg-section--soft {
+  background: var(--spg-gray-100);
+}
+
+.spg-grid {
+  display: grid;
+  gap: clamp(24px, 3vw, 42px);
+}
+
+.spg-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.spg-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.spg-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ---------- Typography ---------- */
+.spg-kicker,
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.spg-kicker::before,
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  background: var(--spg-green);
+}
+
+h1,
+h2,
+h3,
+.spg-display {
+  margin-top: 0;
+  font-family: var(--spg-font-display);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+h1,
+.spg-h1 {
+  font-size: clamp(3.5rem, 8vw, 8.75rem);
+}
+
+h2,
+.spg-h2 {
+  font-size: clamp(2.5rem, 5.5vw, 5.6rem);
+}
+
+h3,
+.spg-h3 {
+  font-size: clamp(1.6rem, 2.7vw, 2.8rem);
+}
+
+p {
+  margin: 0 0 1.25em;
+}
+
+.spg-lead {
+  max-width: 760px;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.spg-muted {
+  color: var(--spg-gray-700);
+}
+
+.spg-section--dark .spg-muted {
+  color: #BBBBBB;
+}
+
+/* ---------- Header / Navigation ---------- */
+.spg-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.spg-nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.spg-logo {
+  max-width: 150px;
+}
+
+.spg-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spg-nav__links a {
+  position: relative;
+  padding-block: 8px;
+}
+
+.spg-nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background: var(--spg-green);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--spg-transition);
+}
+
+.spg-nav__links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---------- Buttons ---------- */
+.spg-btn,
+button.spg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 26px;
+  border: 2px solid var(--spg-black);
+  border-radius: var(--spg-radius-pill);
+  background: var(--spg-black);
+  color: var(--spg-white);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform var(--spg-transition),
+    background var(--spg-transition),
+    color var(--spg-transition),
+    border-color var(--spg-transition);
+}
+
+.spg-btn:hover {
+  transform: translateY(-2px);
+  background: var(--spg-green);
+  border-color: var(--spg-green);
+}
+
+.spg-btn--outline {
+  background: transparent;
+  color: var(--spg-black);
+}
+
+.spg-btn--outline:hover {
+  color: var(--spg-white);
+}
+
+.spg-section--dark .spg-btn--outline {
+  border-color: var(--spg-white);
+  color: var(--spg-white);
+}
+
+.spg-btn--green {
+  border-color: var(--spg-green);
+  background: var(--spg-green);
+}
+
+.spg-btn--green:hover {
+  border-color: var(--spg-green-dark);
+  background: var(--spg-green-dark);
+}
+
+/* ---------- Hero ---------- */
+.spg-hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background: var(--spg-black);
+  color: var(--spg-white);
+}
+
+.spg-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.spg-hero__media img,
+.spg-hero__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spg-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.12) 10%, rgba(0,0,0,0.78) 100%);
+}
+
+.spg-hero__content {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(80px, 10vw, 140px) clamp(60px, 7vw, 100px);
+}
+
+.spg-hero h1 {
+  max-width: 980px;
+  margin-bottom: 24px;
+}
+
+.spg-hero p {
+  max-width: 700px;
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+}
+
+/* ---------- Split Editorial Section ---------- */
+.spg-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(36px, 7vw, 100px);
+  align-items: center;
+}
+
+.spg-split--lead {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+.spg-split__media {
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: var(--spg-radius-lg);
+}
+
+.spg-split__media img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+}
+
+/* ---------- Cards ---------- */
+.spg-card {
+  overflow: hidden;
+  border: 1px solid var(--spg-gray-200);
+  border-radius: var(--spg-radius-md);
+  background: var(--spg-white);
+  transition:
+    transform var(--spg-transition),
+    box-shadow var(--spg-transition);
+}
+
+.spg-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--spg-shadow-hover);
+}
+
+.spg-card__image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--spg-gray-100);
+}
+
+.spg-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.spg-card:hover .spg-card__image img {
+  transform: scale(1.035);
+}
+
+.spg-card__body {
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.spg-card__body h3 {
+  margin-bottom: 12px;
+}
+
+.spg-card__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Pillar / Method Cards ---------- */
+.spg-pillar {
+  padding: 30px 0;
+  border-top: 1px solid var(--spg-gray-300);
+}
+
+.spg-pillar:last-child {
+  border-bottom: 1px solid var(--spg-gray-300);
+}
+
+.spg-pillar__title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.spg-pillar__title strong {
+  font-family: var(--spg-font-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.spg-pillar__title span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ---------- Image Tiles / Locations ---------- */
+.spg-tile {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  border-radius: var(--spg-radius-md);
+  background: var(--spg-charcoal);
+  color: var(--spg-white);
+}
+
+.spg-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.spg-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.82) 100%);
+}
+
+.spg-tile:hover img {
+  transform: scale(1.045);
+}
+
+.spg-tile__content {
+  position: absolute;
+  z-index: 2;
+  inset: auto 28px 28px;
+}
+
+.spg-tile__content h3 {
+  margin-bottom: 8px;
+}
+
+/* ---------- Feature Strip ---------- */
+.spg-feature-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.spg-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid var(--spg-gray-300);
+  border-radius: var(--spg-radius-pill);
+  background: var(--spg-white);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- Accent Rule ---------- */
+.spg-rule {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background: var(--spg-gray-300);
+}
+
+.spg-rule--red {
+  width: 72px;
+  height: 4px;
+  background: var(--spg-green);
+}
+
+/* ---------- CTA Banner ---------- */
+.spg-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 7vw, 92px);
+  border-radius: var(--spg-radius-lg);
+  background: var(--spg-black);
+  color: var(--spg-white);
+}
+
+.spg-cta::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 6px;
+  top: 0;
+  left: 0;
+  background: var(--spg-green);
+}
+
+.spg-cta h2 {
+  max-width: 900px;
+  margin-bottom: 22px;
+}
+
+/* ---------- Forms ---------- */
+.spg-field {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid var(--spg-gray-300);
+  border-radius: var(--spg-radius-sm);
+  background: var(--spg-white);
+  color: var(--spg-black);
+  outline: none;
+  transition:
+    border-color var(--spg-transition),
+    box-shadow var(--spg-transition);
+}
+
+.spg-field:focus {
+  border-color: var(--spg-black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+textarea.spg-field {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* ---------- Footer ---------- */
+.spg-footer {
+  padding-block: 72px 32px;
+  background: var(--spg-black);
+  color: var(--spg-white);
+}
+
+.spg-footer a {
+  color: #D7D7D7;
+  transition: color var(--spg-transition);
+}
+
+.spg-footer a:hover {
+  color: var(--spg-white);
+}
+
+.spg-footer__bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  color: #999999;
+  font-size: 0.85rem;
+}
+
+/* ---------- Optional Apex MD / DF360 Boost Section ---------- */
+.spg-boost {
+  background:
+    radial-gradient(circle at top right, rgba(215,25,32,0.12), transparent 34%),
+    var(--spg-black);
+  color: var(--spg-white);
+}
+
+.spg-boost-card {
+  height: 100%;
+  padding: clamp(26px, 3vw, 38px);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--spg-radius-md);
+  background: rgba(255,255,255,0.055);
+  backdrop-filter: blur(8px);
+}
+
+.spg-boost-card h3 {
+  margin-bottom: 12px;
+}
+
+.spg-boost-card p {
+  color: #C9C9C9;
+}
+
+/* ---------- Utility Classes ---------- */
+.spg-text-center { text-align: center; }
+.spg-text-white { color: var(--spg-white); }
+.spg-text-red { color: var(--spg-green); }
+.spg-bg-black { background: var(--spg-black); }
+.spg-bg-soft { background: var(--spg-gray-100); }
+
+.spg-max-copy {
+  max-width: 760px;
+}
+
+.spg-mx-auto {
+  margin-inline: auto;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .spg-grid--4,
+  .spg-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spg-split {
+    grid-template-columns: 1fr;
+  }
+
+  .spg-split__media {
+    min-height: 420px;
+  }
+
+  .spg-nav__links {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .spg-container {
+    padding-inline: 20px;
+  }
+
+  .spg-grid--4,
+  .spg-grid--3,
+  .spg-grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  h1,
+  .spg-h1 {
+    font-size: clamp(3rem, 17vw, 5rem);
+  }
+
+  h2,
+  .spg-h2 {
+    font-size: clamp(2.25rem, 12vw, 3.7rem);
+  }
+
+  .spg-hero {
+    min-height: 70vh;
+  }
+
+  .spg-hero__content {
+    padding-bottom: 54px;
+  }
+
+  .spg-card,
+  .spg-tile,
+  .spg-cta,
+  .spg-split__media {
+    border-radius: 16px;
+  }
+
+  .spg-tile {
+    min-height: 390px;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* ---------- Additions for the DF360 Boost site ---------- */
+@keyframes spgMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes spgFade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes spgRise { from { opacity: 0; transform: translateY(16px) } to { opacity: 1; transform: none } }
+
+.spg-offerbar {
+  display: flex; align-items: center; height: 40px; overflow: hidden;
+  background: var(--spg-green); color: var(--spg-white);
+}
+.spg-offerbar__track { display: flex; width: 200%; animation: spgMarquee 30s linear infinite; }
+.spg-offerbar__set {
+  display: flex; gap: 56px; width: 50%; flex: none; padding-left: 20px; align-items: center;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
+}
+
+.spg-btn--sm { min-height: 44px; padding: 10px 20px; font-size: 0.74rem; }
+.spg-btn--white { border-color: var(--spg-white); background: var(--spg-white); color: var(--spg-black); }
+.spg-btn--white:hover { border-color: var(--spg-green); background: var(--spg-green); color: var(--spg-white); }
+
+.spg-menu {
+  position: absolute; top: 100%; left: -14px; padding-top: 18px; z-index: 40;
+  animation: spgFade .14s ease;
+}
+.spg-menu__panel {
+  width: 380px; overflow: hidden; background: var(--spg-white);
+  border: 1px solid var(--spg-gray-200); border-radius: var(--spg-radius-md); box-shadow: var(--spg-shadow);
+}
+.spg-menu__item {
+  display: flex; justify-content: space-between; gap: 16px; align-items: center;
+  padding: 14px 20px; border-bottom: 1px solid var(--spg-gray-200);
+  font-size: 0.95rem; font-weight: 700; transition: background var(--spg-transition), color var(--spg-transition);
+}
+.spg-menu__item:last-child { border-bottom: 0; }
+.spg-menu__item:hover { background: var(--spg-gray-100); color: var(--spg-green); }
+.spg-menu__price { font-size: 0.76rem; font-weight: 700; color: var(--spg-gray-500); }
+
+.spg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; }
+.spg-stat { padding: 22px 26px 22px 0; }
+.spg-stat + .spg-stat { padding-left: 26px; border-left: 1px solid rgba(255,255,255,0.16); }
+.spg-stat__num { font-family: var(--spg-font-display); font-size: clamp(1.9rem, 3vw, 2.8rem); font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; }
+.spg-stat__label { margin-top: 6px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--spg-gray-500); }
+.spg-stats--light .spg-stat + .spg-stat { border-left-color: var(--spg-gray-300); }
+
+.spg-price { border: 1px solid var(--spg-gray-200); border-radius: var(--spg-radius-md); overflow: hidden; background: var(--spg-white); box-shadow: var(--spg-shadow); }
+.spg-price__head {
+  padding: 20px 24px; background: var(--spg-green); color: var(--spg-white);
+  border-radius: var(--spg-radius-md) var(--spg-radius-md) 0 0;
+}
+.spg-price__body {
+  padding: 26px 24px; background: var(--spg-white);
+  border: 1px solid var(--spg-gray-200); border-top: 0;
+  border-radius: 0 0 var(--spg-radius-md) var(--spg-radius-md);
+}
+.spg-price .spg-price__head, .spg-price .spg-price__body { border-radius: 0; border-top: 0; }
+.spg-price__amount { font-family: var(--spg-font-display); font-size: 3.4rem; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -0.03em; }
+.spg-list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.spg-list li { display: flex; gap: 10px; font-size: 0.95rem; }
+.spg-list li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 8px; border-radius: 50%; background: var(--spg-green); }
+
+.spg-faq { border-top: 1px solid var(--spg-gray-300); }
+.spg-faq details { border-bottom: 1px solid var(--spg-gray-300); }
+.spg-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; cursor: pointer; font-size: 1.1rem; font-weight: 700; list-style: none; }
+.spg-faq summary::-webkit-details-marker { display: none; }
+.spg-faq summary span:last-child { flex: none; color: var(--spg-green); font-size: 1.5rem; line-height: 1; transition: transform var(--spg-transition); }
+.spg-faq details[open] summary span:last-child { transform: rotate(45deg); }
+.spg-faq p { max-width: 62ch; margin: 0 0 24px; color: var(--spg-gray-700); }
+
+.spg-quiz__backdrop { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; background: rgba(11,11,11,0.82); animation: spgFade .18s ease; }
+.spg-quiz { width: min(760px, 100%); background: var(--spg-white); border-radius: var(--spg-radius-lg); overflow: hidden; animation: spgRise .24s cubic-bezier(.2,.7,.3,1); }
+.spg-quiz__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 28px; background: var(--spg-black); color: var(--spg-white); }
+.spg-quiz__body { padding: 32px 28px 30px; }
+.spg-quiz__opt { display: flex; align-items: center; gap: 18px; width: 100%; padding: 16px 14px; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--spg-gray-200); border-radius: var(--spg-radius-sm); cursor: pointer; transition: background var(--spg-transition), padding-left var(--spg-transition); }
+.spg-quiz__opt:hover { background: var(--spg-gray-100); padding-left: 22px; }
+.spg-quiz__opt b { flex: 1; font-family: var(--spg-font-body); font-size: 1.05rem; font-weight: 700; }
+.spg-quiz__num { width: 26px; flex: none; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; color: var(--spg-green); }
+
+.spg-float { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: none; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 16px 20px; background: var(--spg-black); color: var(--spg-white); border: 0; border-top: 3px solid var(--spg-green); font-weight: 800; font-size: 0.9rem; text-align: left; cursor: pointer; }
+
+.spg-product { display: flex; align-items: center; justify-content: center; padding: 26px; background: var(--spg-gray-100); border-radius: var(--spg-radius-md); }
+.spg-product img { max-height: 220px; width: auto; }
+
+.spg-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.spg-compare__col { padding: 30px; border: 1px solid var(--spg-gray-200); border-radius: var(--spg-radius-md); }
+.spg-compare__col--win { background: var(--spg-black); color: var(--spg-white); border-color: var(--spg-black); }
+
+/* ---------- Press strip ----------
+   Publisher marks stay MONOCHROME on purpose. Their real brand colours would
+   read as endorsement rather than "as featured in", and five competing house
+   palettes in one row looks like a link farm. The lift comes from size,
+   centring, a green kicker and a hover, not from colour.
+   Heights are set per mark: NYT is a 7.4:1 wordmark and NBC/AP/ABC are 1:1
+   roundels, so one shared height would make the roundels tower over the
+   wordmarks. These are matched by eye, not by number. */
+.spg-press { text-align: center; }
+.spg-press__kicker {
+  margin: 0 0 26px;
+  font-family: var(--spg-font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--spg-green);
+}
+.spg-press__row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 26px clamp(30px, 5vw, 64px);
+}
+.spg-press__row li { display: flex; align-items: center; flex: 0 0 auto; }
+/* Same trap as the header lockup: as flex items these marks shrink, and the
+   global `img{max-width:100%}` then resolves against a 0-width parent and
+   collapses them to nothing while their heights still apply. */
+.spg-press__row img { flex: 0 0 auto; max-width: none; }
+.spg-press img {
+  width: auto;
+  opacity: .62;
+  filter: grayscale(1);
+  transition: opacity var(--spg-transition), transform var(--spg-transition), filter var(--spg-transition);
+}
+.spg-press__nyt    { height: 34px; }
+.spg-press__forbes { height: 30px; }
+.spg-press__nbc    { height: 42px; }
+.spg-press__ap     { height: 36px; }
+.spg-press__abc    { height: 40px; }
+.spg-press img:hover { opacity: 1; transform: translateY(-2px); }
+
+/* Entrance: staggered, and armed by JS so a script failure never hides logos. */
+.spg-press.is-armed .spg-press__row li { opacity: 0; transform: translateY(10px); }
+.spg-press__row li { transition: opacity .5s ease, transform .5s cubic-bezier(.22,.8,.3,1); }
+.spg-press.is-in .spg-press__row li { opacity: 1; transform: none; }
+.spg-press.is-armed .spg-press__row li:nth-child(1) { transition-delay: 0ms }
+.spg-press.is-armed .spg-press__row li:nth-child(2) { transition-delay: 70ms }
+.spg-press.is-armed .spg-press__row li:nth-child(3) { transition-delay: 140ms }
+.spg-press.is-armed .spg-press__row li:nth-child(4) { transition-delay: 210ms }
+.spg-press.is-armed .spg-press__row li:nth-child(5) { transition-delay: 280ms }
+
+@media (max-width: 560px) {
+  .spg-press__row { gap: 22px 26px; }
+  .spg-press__nyt { height: 26px } .spg-press__forbes { height: 23px }
+  .spg-press__nbc { height: 32px } .spg-press__ap { height: 28px } .spg-press__abc { height: 30px }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spg-press.is-armed .spg-press__row li { opacity: 1; transform: none; transition: none; }
+  .spg-press img:hover { transform: none; }
+}
+.spg-section--dark .spg-press img { opacity: .75; filter: grayscale(1) invert(1); }
+
+/* form groups (used by the contact form) */
+.spg-field-group > label {
+  display: block; margin-bottom: 7px;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--spg-gray-700);
+}
+.spg-field-group textarea.spg-field { min-height: 140px; }
+.input { width: 100%; }
+.field > label { display: block; margin-bottom: 6px; font-size: 0.78rem; color: var(--spg-gray-700); }
+
+/* the persistent CTA bar sits over the footer below 1040px — reserve its space on the flow element */
+@media (max-width: 1040px) {
+  .spg-footer { padding-bottom: 112px; }
+}
+
+
+/* ---------- Hero framed around the logo burned into the video ----------
+   The tour footage carries the DF360 mark in the bottom-centre, so the
+   copy stays in a left column, the scrim is weighted left instead of down,
+   and the bottom-centre band is kept clear. */
+.spg-hero--framed { min-height: 88vh; align-items: center; }
+
+.spg-hero--framed::after {
+  background: linear-gradient(96deg,
+    rgba(0,0,0,0.90) 0%,
+    rgba(0,0,0,0.66) 40%,
+    rgba(0,0,0,0.22) 70%,
+    rgba(0,0,0,0.06) 100%);
+}
+
+.spg-hero--framed .spg-hero__content {
+  padding-block: clamp(90px, 10vw, 150px) clamp(130px, 15vw, 210px);
+}
+/* The hero still is a spin class: the lead rider's face occupies roughly
+   50%-72% of the frame width, upper half. The headline is held to the left
+   ~46% so it never crosses her, and its size is capped lower than the global
+   h1 clamp so a narrow column does not turn into six lines. The chip row and
+   buttons sit lower, below her face, so they are free to run wider -- which
+   is what keeps the chips on a single line. */
+.spg-hero--framed .spg-hero__content h1 {
+  max-width: min(15ch, 46%);
+  font-size: clamp(2.9rem, 5.2vw, 5.1rem);
+}
+.spg-hero--framed .spg-hero__content > p { max-width: min(46ch, 45%); }
+.spg-hero--framed .spg-hero__content > div { max-width: none; }
+
+/* Keep the hero's benefit chips on one row. */
+.spg-hero--framed .spg-feature-strip {
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: max-content;
+  max-width: 100%;
+}
+.spg-hero--framed .spg-feature-strip .spg-chip {
+  white-space: nowrap;
+  padding: 9px 14px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+@media (max-width: 1180px) {
+  .spg-hero--framed .spg-feature-strip .spg-chip { font-size: 0.64rem; padding: 8px 11px; letter-spacing: 0.04em; }
+}
+
+@media (max-width: 900px) {
+  .spg-hero--framed::after {
+    background: linear-gradient(180deg,
+      rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.70) 45%, rgba(0,0,0,0.88) 100%);
+  }
+  .spg-hero--framed .spg-hero__content h1,
+  .spg-hero--framed .spg-hero__content > p,
+  .spg-hero--framed .spg-hero__content > div { max-width: none; }
+  .spg-hero--framed .spg-hero__content h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
+  /* one row is a desktop luxury; on a phone let them wrap */
+  .spg-hero--framed .spg-feature-strip { flex-wrap: wrap; width: auto; }
+  .spg-hero--framed .spg-feature-strip .spg-chip { font-size: 0.66rem; }
+  .spg-hero--framed .spg-hero__content { padding-bottom: clamp(150px, 28vw, 230px); }
+}
+
+/* ---------- Co-brand lockup: DF360 · powered by · Apex MD ----------
+   The Apex MD PNG carries ~29% transparent padding, so its box height is
+   set ~1.15x the DF360 mark to land at a matching optical height.
+   Sizes step down with the viewport: at full size the lockup is ~368px,
+   which overflows the header bar between the container max-width and the
+   1040px burger breakpoint, and crowds the burger on a phone. */
+/* Do NOT let the lockup flex-shrink. If it collapses toward 0 width, the
+   global `img { max-width: 100% }` resolves against that 0 and clamps BOTH
+   marks to zero width while their heights still apply -- an invisible logo.
+   The marks are stepped down by the media queries below instead. */
+.spg-lockup { flex: 0 0 auto; }
+.spg-lockup > img,
+.spg-lockup__by { flex: 0 0 auto; max-width: none; }
+.spg-lockup__df360 { height: 28px; width: auto; }
+.spg-lockup__apex   { height: 32px; width: auto; }
+
+@media (max-width: 1200px) {
+  .spg-lockup { gap: 10px; }
+  .spg-lockup__df360 { height: 24px; }
+  .spg-lockup__apex   { height: 27px; }
+}
+@media (max-width: 1040px) {
+  .spg-lockup { gap: 9px; }
+  .spg-lockup__df360 { height: 22px; }
+  .spg-lockup__apex   { height: 25px; }
+  .spg-lockup__by     { font-size: 7.5px; letter-spacing: 0.1em; }
+}
+@media (max-width: 420px) {
+  .spg-lockup { gap: 7px; }
+  .spg-lockup__df360 { height: 18px; }
+  .spg-lockup__apex   { height: 21px; }
+  .spg-lockup__by     { font-size: 7px; letter-spacing: 0.06em; }
+}
+
+/* ---------- Programs dropdown ----------
+   The panel is hidden with an inline display:none so it cannot flash before
+   df360-app.js runs; opening clears that inline value and this rule applies. */
+.spg-navmenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -18px;
+  min-width: 232px;
+  padding: 10px;
+  background: var(--spg-white);
+  border: 1px solid var(--spg-gray-200);
+  border-radius: var(--spg-radius-sm);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.13);
+  z-index: 1200;
+}
+/* The panel sits 12px below the button. That gap is neither the button nor the
+   panel, so travelling across it fired mouseleave and shut the menu before the
+   pointer arrived. This invisible bridge spans the gap and keeps the hover
+   surface continuous. */
+.spg-navmenu::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+.spg-navmenu a {
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--spg-black);
+  border-radius: 7px;
+  white-space: nowrap;
+  transition: background var(--spg-transition), color var(--spg-transition);
+}
+.spg-navmenu a:hover,
+.spg-navmenu a:focus-visible { background: var(--spg-gray-100); color: var(--spg-green); }
+.spg-navmenu a[aria-current="page"] { color: var(--spg-green); }
+
+
+/* ---------- Ghost button ----------
+   .spg-btn--ghost is used on all 12 pages (the quiz's "Back" control) but was
+   never defined, so it inherited .spg-btn's white text and rendered
+   white-on-white inside the light quiz modal: present, clickable, invisible.
+   It is a tertiary control on a LIGHT ground, so it gets ink, not paper. */
+/* The base rule is `.spg-btn, button.spg-btn`; that second selector is
+   (0,1,1) and outranks a bare `.spg-btn--ghost` (0,1,0) on a <button>, so the
+   modifier has to match it or the dark fill wins. */
+.spg-btn--ghost,
+button.spg-btn--ghost {
+  background: none;
+  border: 2px solid transparent;
+  color: var(--spg-gray-700);
+  text-decoration: none;
+  gap: 8px;
+}
+.spg-btn--ghost:hover,
+.spg-btn--ghost:focus-visible,
+button.spg-btn--ghost:hover,
+button.spg-btn--ghost:focus-visible {
+  color: var(--spg-green);
+  background: var(--spg-gray-100);
+  border-color: var(--spg-gray-200);
+}
