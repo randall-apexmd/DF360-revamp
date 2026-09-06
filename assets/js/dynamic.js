@@ -43,7 +43,7 @@
           '<img src="img/df360/logo-apex-dark.webp" alt="" width="900" height="241">' +
         '</a>' +
         '<a class="btn btn-primary eos-stickybar__cta" data-intake="body-scan" ' +
-           'href="https://formdf360.apexmd.com/?categoryId=bloodwork" target="_blank" rel="noopener">Claim your offer</a>' +
+           'href="https://formdefined.apexmd.com/?categoryId=bloodwork" target="_blank" rel="noopener">Claim your offer</a>' +
       '</div>';
     document.body.appendChild(bar);
 
@@ -121,7 +121,7 @@
         '<span class="eos-pricebar__label">' + (document.title.split('—')[0].split('|')[0].trim()) + '</span>' +
         '<span class="eos-pricebar__price">' + priceEl.textContent.trim() + '</span>' +
         '<a class="btn btn-primary" data-intake="assessment" ' +
-           'href="https://formdf360.apexmd.com/?categoryId=bloodwork" target="_blank" rel="noopener">Start your intake</a>' +
+           'href="https://formdefined.apexmd.com/?categoryId=bloodwork" target="_blank" rel="noopener">Start your intake</a>' +
       '</div>';
     document.body.appendChild(bar);
 

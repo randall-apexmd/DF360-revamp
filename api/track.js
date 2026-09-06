@@ -10,7 +10,7 @@
  *
  * HOW ATTRIBUTION WORKS
  * iDevAffiliate is in IP-tracking mode - it records "this IP was referred by
- * affiliate 176". When that visitor later converts on formdf360.apexmd.com,
+ * affiliate 176". When that visitor later converts on formdefined.apexmd.com,
  * iDev matches on IP and credits the partner. The call MUST be server-side and
  * MUST carry the visitor's real IP, or the partner does not get paid.
  *

@@ -13,7 +13,7 @@
   };
 
   var ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'ttclid', 'msclkid'];
-  var HANDOFF_HOSTS = ['formdf360.apexmd.com', 'form.apexmd.com', 'ehr.apexmd.com'];
+  var HANDOFF_HOSTS = ['formdefined.apexmd.com', 'form.apexmd.com', 'ehr.apexmd.com'];
   var COOKIE = 'df360_attr';
 
   /* ---------- first-touch attribution, shared across *.apexmd.com ---------- */

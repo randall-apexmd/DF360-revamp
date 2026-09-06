@@ -19,7 +19,7 @@
      The selected home club is appended as &club= so a signup stays traceable
      to a location. The form ignores parameters it does not use; drop the line
      in intakeUrl() if club attribution is handled elsewhere. */
-  var INTAKE_BASE = 'https://formdf360.apexmd.com';
+  var INTAKE_BASE = 'https://formdefined.apexmd.com';
   var STORAGE_KEY = 'df360.homeStudio';
 
   /* Default category per CTA kind. An element may override with
