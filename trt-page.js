@@ -55,7 +55,7 @@
       Array.prototype.forEach.call(shell.children, function (el) {
         if (el !== frame) el.style.display = 'none';
       });
-      if (window.spgTrack) { try { window.spgTrack('VideoPlay', { id: id, page: location.pathname }); } catch (e) {} }
+      if (window.dfTrack) { try { window.dfTrack('VideoPlay', { id: id, page: location.pathname }); } catch (e) {} }
     });
   }
 

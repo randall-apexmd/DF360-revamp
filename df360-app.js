@@ -25,7 +25,7 @@
 
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
-  function track(ev, data) { if (window.spgTrack) { try { window.spgTrack(ev, data || {}); } catch (e) {} } }
+  function track(ev, data) { if (window.dfTrack) { try { window.dfTrack(ev, data || {}); } catch (e) {} } }
 
   /* ---------------- quiz ---------------- */
   var quiz = $('#spQuiz'), step1 = $('#spStep1'), result = $('#spResult'), stepLabel = $('#spStepLabel');
@@ -36,7 +36,7 @@
     showStep1();
     quiz.hidden = false;
     document.body.style.overflow = 'hidden';
-    var first = $('.spg-quiz__opt', quiz);
+    var first = $('.df-quiz__opt', quiz);
     if (first) first.focus();
   }
   function closeQuiz() {
@@ -69,7 +69,7 @@
     result.scrollTop = 0;
   }
 
-  window.spgOpenQuiz = openQuiz;
+  window.dfOpenQuiz = openQuiz;
 
   document.addEventListener('click', function (e) {
     var t = e.target;
@@ -101,7 +101,7 @@
 
   /* ---------------- programs dropdown ---------------- */
   $$('[data-spnav] button').forEach(function (btn) {
-    var panel = btn.parentNode && $('.spg-navmenu', btn.parentNode);
+    var panel = btn.parentNode && $('.df-navmenu', btn.parentNode);
     if (!panel) return;
     panel.style.display = 'none';
     btn.setAttribute('aria-expanded', 'false');
@@ -150,7 +150,7 @@
 
     function say(msg, ok) {
       note.textContent = msg;
-      note.style.color = ok ? 'var(--spg-green)' : '#B3261E';
+      note.style.color = ok ? 'var(--df-red)' : '#B3261E';
       note.style.display = 'block';
     }
 
@@ -188,8 +188,8 @@
         }
       };
 
-      if (!window.spgSubmitLead) { done({ ok: false }); return; }
-      window.spgSubmitLead(data, kind).then(done, function () { done({ ok: false }); });
+      if (!window.dfSubmitLead) { done({ ok: false }); return; }
+      window.dfSubmitLead(data, kind).then(done, function () { done({ ok: false }); });
     });
   });
 
@@ -232,7 +232,7 @@
     if (here === '') here = 'index.html';
     $$('[data-spnav] a, #spMobile a').forEach(function (a) {
       if ((a.getAttribute('href') || '') === here) {
-        a.style.color = 'var(--spg-green)';
+        a.style.color = 'var(--df-red)';
         a.setAttribute('aria-current', 'page');
       }
     });

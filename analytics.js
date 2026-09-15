@@ -48,7 +48,7 @@
     stored = attr;
     writeCookie(COOKIE, JSON.stringify(stored), 90);
   }
-  window.spgAttribution = stored;
+  window.dfAttribution = stored;
 
   /* ---------- tag loaders ---------- */
   window.dataLayer = window.dataLayer || [];
@@ -94,7 +94,7 @@
     }
     if (window.gtag) window.gtag('event', name, payload);
   }
-  window.spgTrack = track;
+  window.dfTrack = track;
 
   /* ---------- carry attribution across the domain hops ---------- */
   function decorate(url) {
@@ -107,7 +107,7 @@
       return u.toString();
     } catch (e) { return url; }
   }
-  window.spgDecorate = decorate;
+  window.dfDecorate = decorate;
 
   /* ---------- delegated CTA instrumentation ---------- */
   document.addEventListener('click', function (e) {
@@ -134,7 +134,7 @@
   }, true);
 
   /* ---------- lead capture ---------- */
-  window.spgSubmitLead = function (fields, kind) {
+  window.dfSubmitLead = function (fields, kind) {
     var body = Object.assign({}, fields, {
       kind: kind || 'lead',
       page: location.pathname,
@@ -172,8 +172,8 @@
       v.volume = 0;
       v.removeAttribute('controls');
       v.setAttribute('disableremoteplayback', '');
-      if (!v.dataset.spgMuted) {
-        v.dataset.spgMuted = '1';
+      if (!v.dataset.dfMuted) {
+        v.dataset.dfMuted = '1';
         v.addEventListener('volumechange', function () {
           if (!v.muted || v.volume > 0) { v.muted = true; v.volume = 0; }
         });
@@ -181,21 +181,21 @@
       }
     });
   }
-  window.spgForceMute = forceMute;
+  window.dfForceMute = forceMute;
 
   function decorateAll(root) {
     forceMute(root);
-    (root || document).querySelectorAll('a[href]:not([data-spg-dec])').forEach(function (a) {
+    (root || document).querySelectorAll('a[href]:not([data-df-dec])').forEach(function (a) {
       var h = a.getAttribute('href') || '';
       try {
         if (HANDOFF_HOSTS.indexOf(new URL(h, location.href).hostname) > -1) {
           a.setAttribute('href', decorate(h));
-          a.setAttribute('data-spg-dec', '1');
+          a.setAttribute('data-df-dec', '1');
         }
       } catch (e) { /* relative link */ }
     });
   }
-  window.spgDecorateAll = decorateAll;
+  window.dfDecorateAll = decorateAll;
 
   function start() {
     decorateAll();

@@ -6,10 +6,10 @@
    button keeps its original proportions. If you resize it again, the radius
    and shadow do not auto-scale -- adjust them to match.
 
-   Background is the DF360 green, --spg-green / #DE192C from df360-theme.css,
+   Background is the DF360 red, --df-red / #DE192C from df360-theme.css,
    written here as rgb(222, 25, 44). It is hard-coded rather than using
-   var(--spg-green) because this SVG is handed to the vendor's widget, which
-   may render it outside the page's own stylesheet scope. If the brand green
+   var(--df-red) because this SVG is handed to the vendor's widget, which
+   may render it outside the page's own stylesheet scope. If the brand red
    ever changes in the theme, change it here too. */
 
 window.addEventListener("load", function () {

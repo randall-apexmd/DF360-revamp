@@ -17,7 +17,7 @@
  * AFFILIATE IDS (one per partner subdomain):
  *   catalyst 133 | club24 143 | uscryotherapy 149 | 10fitness 159
  *   glencove 167 | recoveryproject 168 | fit 169 | vibefitness 171
- *   spenga 172 | defined 176 | republicwellness 207 | mac 208
+ *   defined 176 | republicwellness 207 | mac 208
  */
 
 const crypto = require('crypto');

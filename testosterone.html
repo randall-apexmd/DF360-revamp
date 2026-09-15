@@ -10,6 +10,9 @@
 <meta property="og:description" content="Physician-guided testosterone therapy for Defined Fitness members. Bloodwork first, then a protocol built for you.">
 <meta property="og:url" content="https://df360.apexmd.com/testosterone.html">
 <link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="analytics.js"></script>
 </head>
 <body>
@@ -437,11 +440,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-  .spg-lockup{flex:0 0 auto}
-  .spg-lockup>img,.spg-lockup__by{flex:0 0 auto;max-width:none}
-  .spg-lockup__df360{height:26px;width:auto;display:block}
-  .spg-lockup__apex{height:30px;width:auto;display:block}
-  @media (max-width:1040px){.spg-lockup__df360{height:22px}.spg-lockup__apex{height:25px}}
+  .df-lockup{flex:0 0 auto}
+  .df-lockup>img,.df-lockup__by{flex:0 0 auto;max-width:none}
+  .df-lockup__df360{height:26px;width:auto;display:block}
+  .df-lockup__apex{height:30px;width:auto;display:block}
+  @media (max-width:1040px){.df-lockup__df360{height:22px}.df-lockup__apex{height:25px}}
   .trt-faq__q:hover{background:#faf8f6}
 
   /* ---------- Responsive pass ----------
@@ -471,9 +474,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* NOT a blanket `img{height:auto}` -- that overrode the lockup marks
        and blew both logos up to full-screen width on a phone. */
     .trt-page img { max-width: 100%; }
-    .trt-page .spg-lockup__df360 { height: 20px !important; width: auto !important; }
-    .trt-page .spg-lockup__apex   { height: 23px !important; width: auto !important; }
-    .trt-page .spg-lockup { gap: 8px !important; }
+    .trt-page .df-lockup__df360 { height: 20px !important; width: auto !important; }
+    .trt-page .df-lockup__apex   { height: 23px !important; width: auto !important; }
+    .trt-page .df-lockup { gap: 8px !important; }
     .trt-page .trt-faq__a { padding-left: 24px !important; }
   }
   @media (max-width: 420px) {
@@ -486,7 +489,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      Deliberately NO shared 0-100 bar across the four: "+36%" is a relative
      increase and "66%" is a share of men surveyed, so putting them on one
      track would imply a comparability that is not there. The motion carries
-     the dynamism instead. Bright green (#FF4A4A) because this band is dark --
+     the dynamism instead. Bright red (#FF4A4A) because this band is dark --
      the deep #E02424 is the on-light tone. */
   .trt-kpis__kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.2em;
     text-transform:uppercase;color:#FF4A4A;margin-bottom:14px;font-weight:600}
@@ -564,10 +567,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,0.08)">
   <div style="max-width:1240px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between">
     <div style="display:flex;align-items:center;gap:16px">
-      <a href="index.html" class="spg-lockup" style="display:flex;align-items:center;gap:12px;text-decoration:none">
-        <img class="spg-lockup__df360" src="img/df360/logo-df360-grey.webp" alt="DF360" fetchpriority="high" decoding="async">
-        <span class="spg-lockup__by" style="font-family:Menlo,monospace;font-size:8.5px;line-height:1.1;letter-spacing:0.13em;text-transform:uppercase;color:#9a948c;white-space:nowrap">Powered<br>by</span>
-        <img class="spg-lockup__apex" src="img/df360/logo-apex-dark.webp" alt="Apex MD" width="1784" height="477" fetchpriority="high" decoding="async">
+      <a href="index.html" class="df-lockup" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+        <img class="df-lockup__df360" src="img/df360/logo-df360-grey.webp" alt="DF360" fetchpriority="high" decoding="async">
+        <span class="df-lockup__by" style="font-family:Menlo,monospace;font-size:8.5px;line-height:1.1;letter-spacing:0.13em;text-transform:uppercase;color:#9a948c;white-space:nowrap">Powered<br>by</span>
+        <img class="df-lockup__apex" src="img/df360/logo-apex-dark.webp" alt="Apex MD" width="1784" height="477" fetchpriority="high" decoding="async">
       </a>
     </div>
     <nav style="display:flex;align-items:center;gap:30px;font-size:15px;font-weight:500;color:#33302b">
@@ -699,12 +702,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="img/trt/apex-md-personalized-protocol-kit-and-biometri.webp" alt="Apex MD personalized protocol kit and biometric health analysis on a phone" style="width:100%;height:373px;object-fit:cover;object-position:center;display:block">
         <div style="padding:30px 30px 32px;display:flex;flex-direction:column;gap:16px;flex:1">
           <div style="display:flex;align-items:flex-start;gap:14px">
-            <span style="flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#0f8a43;display:flex;align-items:center;justify-content:center"><svg class="icw" style="width:18px;height:18px" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg></span>
-            <h3 style="font-size:21px;font-weight:800;letter-spacing:-0.01em;color:#0f8a43;text-transform:uppercase;line-height:1.2">Our personalized protocols make sure you take the right form and dose of testosterone enhancement.</h3>
+            <span style="flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#17181A;display:flex;align-items:center;justify-content:center"><svg class="icw" style="width:18px;height:18px" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg></span>
+            <h3 style="font-size:21px;font-weight:800;letter-spacing:-0.01em;color:#17181A;text-transform:uppercase;line-height:1.2">Our personalized protocols make sure you take the right form and dose of testosterone enhancement.</h3>
           </div>
           <div style="width:34px;height:3px;background:#E02424"></div>
           <p style="font-size:15px;line-height:1.65;color:#5f5952">We use advanced testing and expert guidance to match you with the right form, the right dose, and a plan built around your body—so you get real results, safely.</p>
-          <div style="margin-top:auto;border:1px solid rgba(15,138,67,0.35);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start">
+          <div style="margin-top:auto;border:1px solid rgba(23,24,26,0.35);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start">
             <svg style="width:24px;height:24px;stroke:#E02424;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"></path></svg>
             <div>
               <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#E02424;font-weight:600;margin-bottom:6px">Biometric Tracking</p>
