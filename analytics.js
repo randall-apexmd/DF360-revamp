@@ -138,7 +138,8 @@
     var body = Object.assign({}, fields, {
       kind: kind || 'lead',
       page: location.pathname,
-      offer_code: 'DF360100',
+      offer_code: /weight-loss|glp-1/.test(location.pathname) ? 'DF100'
+                : /bloodwork/.test(location.pathname) ? '' : 'DF50',
       partner: 'DF360'
     }, stored);
     track(kind === 'contact' ? 'Contact' : 'Lead', { kind: kind || 'lead', page: location.pathname });

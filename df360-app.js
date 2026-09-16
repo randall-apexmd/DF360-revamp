@@ -182,7 +182,7 @@
           form.reset();
           say(kind === 'contact'
             ? 'Thanks — your message is on its way. We usually reply within one business day.'
-            : 'Done. Check your inbox for the guide and your DF360100 code.', true);
+            : 'Done. Check your inbox for the guide' + (/weight-loss|glp-1/.test(location.pathname) ? ' and your DF100 code.' : /bloodwork/.test(location.pathname) ? '.' : ' and your DF50 code.'), true);
         } else {
           say('That did not go through. Please try again, or email info@apexmd.com.', false);
         }
