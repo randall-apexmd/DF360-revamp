@@ -18,6 +18,8 @@
 @media (max-width:1040px){
 [data-spfloat]{display:flex}[data-spnav]{display:none}[data-spburger]{display:flex}
 [data-spcall]{display:inline-flex}[data-splogin]{display:none}}
+@media (max-width:560px){.df-header .df-btn--sm{display:none}.df-header .df-nav{gap:14px}[data-spburger] span,[data-spcall] span{display:none}}
+@media (max-width:360px){.df-header .df-lockup__by{display:none}}
 #spQuiz[hidden],#spResult[hidden],#spStep1[hidden],#spMobile[hidden]{display:none!important}
 #spMobile{position:fixed;inset:0;z-index:2000;background:var(--df-black,#111);color:#fff;padding:26px 22px;overflow:auto}
 #spMobile a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
@@ -28,6 +30,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>@media (max-width:760px){.df-split-phone{grid-template-columns:1fr !important;gap:40px !important;padding:64px 20px !important}}</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -121,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div style="align-self: stretch; border-left: 1px solid rgba(0, 0, 0, 0.1); padding: 0px 0px 80px 40px;">
         <div style="height: 100%; min-height: 460px; border: 1px solid rgb(233, 231, 225); border-radius: 18px; overflow: hidden;">
-          <img src="img/df360/s1-highfive.webp" alt="The DF360 front desk" style="width: 100%; height: 100%; object-fit: cover;" width="1024" height="1024" loading="lazy" decoding="async">
+          <img src="img/df360/a6-labs.webp" alt="An Apex MD clinician reviewing lab results" style="object-position: 40% 50%; width: 100%; height: 100%; object-fit: cover;" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -182,11 +185,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
   <section data-screen-label="Portal" style="background: rgb(16, 16, 16); color: rgb(255, 255, 255);">
-    <div style="max-width: 1320px; margin: 0px auto; padding: 100px 32px; display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,0.65fr); gap: 56px; align-items: center;">
+    <div class="df-split-phone" style="max-width: 1320px; margin: 0px auto; padding: 100px 32px; display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,0.65fr); gap: 56px; align-items: center;">
       <div>
       <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(255, 74, 74); margin-bottom: 20px;">Your portal</div>
       <h2 style="font-size: clamp(36px, 5.2vw, 74px); line-height: 1.06; letter-spacing: -0.018em; margin: 0px 0px 30px; max-width: 18em;">Track Everything in One Place.</h2>
-      <p style="font-size: 18px; line-height: 1.65; color: rgb(187, 187, 187); max-width: 44em; margin: 0px 0px 48px;">You cannot manage what you cannot measure. The more you log, the more your provider has to work with when they personalise your protocol. Everything syncs across web, mobile and wearables.</p>
+      <p style="font-size: 18px; line-height: 1.65; color: rgb(187, 187, 187); max-width: 44em; margin: 0px 0px 48px;">You cannot manage what you cannot measure. The more you log, the more your provider has to work with when they personalize your protocol. Everything syncs across web, mobile and wearables.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-top: 1px solid rgba(255, 255, 255, 0.16);">
         <div style="padding: 24px 20px 24px 0px; border-right: 1px solid rgba(255, 255, 255, 0.14); border-bottom: 1px solid rgba(255, 255, 255, 0.14); font-size: 18px; font-weight: 700;">Bloodwork</div>
         <div style="padding: 24px 20px; border-right: 1px solid rgba(255, 255, 255, 0.14); border-bottom: 1px solid rgba(255, 255, 255, 0.14); font-size: 18px; font-weight: 700;">Workouts</div>
@@ -248,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="df-cta">
       <div class="df-kicker" style="color: var(--df-white);">DF360 × Apex MD</div>
       <h2>You’re Already Doing the Hard Part. Let the Medicine Catch Up.</h2>
-      <p class="df-lead df-muted" style="margin-bottom: 30px;">DF360 has partnered with the best in medical wellness, Apex MD. Exclusive member access, physician-guided protocols, and $50 off your first month with code DF36050.</p>
+      <p class="df-lead df-muted" style="margin-bottom: 30px;">Defined Fitness has partnered with the best in medical wellness, Apex MD. Exclusive member access, physician-guided protocols, and $50 off your first month with code DF36050.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 14px;">
         <a class="df-btn df-btn--red" href="https://formdefined.apexmd.com/?categoryId=weight-loss" target="_blank" rel="noopener">Claim Your Partner Offer</a>
         <a class="df-btn df-btn--outline" href="how-it-works.html">Not Sure Where to Start?</a>
@@ -263,7 +266,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-family: var(--df-font-mono); font-size: 8.5px; line-height: 1.1; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(255,255,255,0.62); white-space: nowrap;">Powered<br>by</span>
           <img src="img/df360/logo-apex-white.webp" alt="Apex MD" style="height: 30px; width: auto;" width="1784" height="477" loading="lazy" decoding="async">
         </div>
-        <p style="max-width: 34em; color: rgb(187, 187, 187); font-size: 0.92rem;">Medical wellness for people who already train. DF360 has partnered with Apex MD to give members exclusive access to physician-guided peptide, hormone and weight-loss protocols.</p>
+        <p style="max-width: 34em; color: rgb(187, 187, 187); font-size: 0.92rem;">Medical wellness for people who already train. Defined Fitness has partnered with Apex MD to give members exclusive access to physician-guided peptide, hormone and weight-loss protocols.</p>
         <a href="https://www.defined.com" style="display: inline-flex; align-items: center; gap: 9px; color: var(--df-red); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;"><span>←</span><span>Back to DF360</span></a>
       </div>
       <div>
