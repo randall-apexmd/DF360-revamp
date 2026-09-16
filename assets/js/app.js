@@ -96,7 +96,7 @@
         : { program: 'GLP-1', goal: 'Lose Weight', copy: 'Medically managed weight loss with quarterly labs so your dose stays matched to you.', category: 'weight-loss' };
     }
     if (g === 'Build muscle and recover') return { program: 'Sermorelin', goal: 'Build Muscle', copy: "Supports your own growth hormone production for recovery, sleep and lean mass.", category: 'longevity' };
-    if (g === 'Energy and focus') return { program: 'NAD+ · B-12 MIC', goal: 'Energy & Recovery', copy: 'For the stretch where you make it to the gym but the energy never shows up.', category: 'longevity' };
+    if (g === 'Energy and focus') return { program: 'NAD+ · B-12 MIC', goal: 'Energy & Recovery', copy: 'For the stretch where you make it to Defined Fitness but the energy never shows up.', category: 'longevity' };
     if (g === "Men's vitality") return { program: 'TRT', goal: "Men's Vitality", copy: 'Testosterone therapy when your labs and how you feel both point in that direction.', category: 'trt' };
     return { program: 'HRT', goal: "Women's Hormones", copy: 'Hormone therapy for sleep, mood and the changes of perimenopause and beyond.', category: 'hrt' };
   }
