@@ -88,17 +88,17 @@
     if (!g) return {
       program: '', goal: 'Answer the three questions',
       copy: 'Your recommendation appears here — then start the intake that begins it.',
-      category: 'bloodwork'
+      category: 'bloodwork', page: ''
     };
     if (g === 'Lose weight') {
       return stage === 'Training consistently'
-        ? { program: 'GLP-1 microdose', goal: 'Metabolic Health', copy: 'You are already training. A microdose targets appetite and metabolic markers without blunting the work you are putting in.', category: 'microdosing' }
-        : { program: 'GLP-1', goal: 'Lose Weight', copy: 'Medically managed weight loss with quarterly labs so your dose stays matched to you.', category: 'weight-loss' };
+        ? { program: 'GLP-1 microdose', goal: 'Metabolic Health', copy: 'You are already training. A microdose targets appetite and metabolic markers without blunting the work you are putting in.', category: 'microdosing', page: 'glp-1-microdosing.html' }
+        : { program: 'GLP-1', goal: 'Lose Weight', copy: 'Medically managed weight loss with quarterly labs so your dose stays matched to you.', category: 'weight-loss', page: 'weight-loss.html' };
     }
-    if (g === 'Build muscle and recover') return { program: 'Sermorelin', goal: 'Build Muscle', copy: "Supports your own growth hormone production for recovery, sleep and lean mass.", category: 'longevity' };
-    if (g === 'Energy and focus') return { program: 'NAD+ · B-12 MIC', goal: 'Energy & Recovery', copy: 'For the stretch where you make it to Defined Fitness but the energy never shows up.', category: 'longevity' };
-    if (g === "Men's vitality") return { program: 'TRT', goal: "Men's Vitality", copy: 'Testosterone therapy when your labs and how you feel both point in that direction.', category: 'trt' };
-    return { program: 'HRT', goal: "Women's Hormones", copy: 'Hormone therapy for sleep, mood and the changes of perimenopause and beyond.', category: 'hrt' };
+    if (g === 'Build muscle and recover') return { program: 'Sermorelin', goal: 'Build Muscle', copy: "Supports your own growth hormone production for recovery, sleep and lean mass.", category: 'longevity', page: 'sermorelin.html' };
+    if (g === 'Energy and focus') return { program: 'NAD+ · B-12 MIC', goal: 'Energy & Recovery', copy: 'For the stretch where you make it to Defined Fitness but the energy never shows up.', category: 'longevity', page: 'nad.html' };
+    if (g === "Men's vitality") return { program: 'TRT', goal: "Men's Vitality", copy: 'Testosterone therapy when your labs and how you feel both point in that direction.', category: 'trt', page: 'testosterone.html' };
+    return { program: 'HRT', goal: "Women's Hormones", copy: 'Hormone therapy for sleep, mood and the changes of perimenopause and beyond.', category: 'hrt', page: 'hormones.html' };
   }
 
   var ON  = 'padding:13px 14px;border:2px solid var(--color-accent);background:var(--color-accent-100);font-size:14.5px;font-weight:700;cursor:pointer;text-align:left';
@@ -116,6 +116,9 @@
     $all('[data-rec="program"]').forEach(function (el) { el.textContent = rec.program; });
     $all('[data-rec="copy"]').forEach(function (el) { el.textContent = rec.copy; });
     $all('[data-rec="step"]').forEach(function (el) { el.textContent = answered + ' of 3 answered'; });
+    $all('[data-rec="page"]').forEach(function (el) {
+      if (rec.page) { el.setAttribute('href', rec.page); el.hidden = false; } else { el.hidden = true; }
+    });
     syncClub();
   }
 
