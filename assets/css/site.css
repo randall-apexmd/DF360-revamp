@@ -415,8 +415,17 @@ a:hover { color: var(--color-accent-600); }
   .aq-card-goal { font-size: 34px; }
   .aq-matched { grid-template-columns: 1fr; }
   .aq-matched > div + div { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .15); }
-  .aq-foot { flex-direction: column; align-items: flex-start; }
+  .aq-foot { flex-direction: column-reverse; align-items: stretch; gap: 16px;
+             padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
   .aq-legal { margin-left: 0; }
+  /* thumb-reachable: the CTA goes full width and the card loses its indent */
+  .aq-cta { flex-direction: column; align-items: stretch; gap: 14px; }
+  .aq-go { width: 100%; justify-content: center; }
+  .aq-more { align-self: flex-start; }
+  .aq-card { padding-left: 18px; }
+  .aq-head { padding-top: calc(20px + env(safe-area-inset-top)); }
+  .aq-body { min-height: 0; padding-top: 26px; }
+  .aq-back { order: 2; }
 }
 
 @media (prefers-reduced-motion: reduce) {
