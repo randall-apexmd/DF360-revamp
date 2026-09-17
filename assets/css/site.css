@@ -334,7 +334,7 @@ a:hover { color: var(--color-accent-600); }
   transition: width .45s cubic-bezier(.4, 0, .2, 1);
 }
 
-.aq-body { padding: 34px 36px 8px; min-height: 330px; }
+.aq-body { padding: 34px 36px 8px; min-height: 384px; }   /* holds the panel steady between steps */
 .aq-count {
   display: block; margin-bottom: 14px;
   font-family: var(--df-font-mono, Menlo, monospace);
