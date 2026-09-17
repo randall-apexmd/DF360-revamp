@@ -263,3 +263,15 @@ a:hover { color: var(--color-accent-600); }
     padding-right: 0    !important;
   }
 }
+
+/* — ...and on very wide screens it comes back off the left edge —
+   Past ~1900px the photo stops being cropped, so the woman sits at a fixed
+   fraction of the viewport (~45%) and just keeps moving right. Let the left
+   gutter grow with her instead of pinning the copy to the edge, and hold the
+   copy narrow enough that the product row stops just short of her. */
+@media (min-width: 1900px) {
+  .page--desktop > div.hp-hero {
+    padding-left: max(64px, calc((100vw - 1900px) * 0.4 + 64px)) !important;
+  }
+  .page--desktop > div.hp-hero > div:last-child { max-width: 808px !important; }
+}
