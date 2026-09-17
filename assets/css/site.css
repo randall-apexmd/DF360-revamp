@@ -302,13 +302,13 @@ a:hover { color: var(--color-accent-600); }
 .aq-bg {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: 58% 38%;
-  filter: blur(26px) brightness(.5) saturate(.85);
+  filter: blur(24px) brightness(.66) saturate(.9);
   transform: scale(1.14);           /* hides the soft edge the blur leaves */
-  opacity: .6; pointer-events: none;
+  opacity: .8; pointer-events: none;
 }
 .aq-veil {
   position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(158deg, rgba(13, 15, 17, .62) 0%, rgba(13, 15, 17, .93) 58%, #0D0F11 100%);
+  background: linear-gradient(158deg, rgba(13, 15, 17, .46) 0%, rgba(13, 15, 17, .8) 56%, rgba(13, 15, 17, .95) 100%);
 }
 .aq-head, .aq-meter, .aq-body, .aq-foot { position: relative; z-index: 1; }
 
