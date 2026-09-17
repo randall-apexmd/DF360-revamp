@@ -608,54 +608,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <!-- 2-minute assessment — modal -->
         <div class="overlay" id="assess-modal" hidden>
-          <div style="position:absolute;inset:0;background:rgba(13,16,19,.58);display:flex;align-items:flex-start;justify-content:center;padding:72px 0;z-index:50">
-            <div style="width:900px;background:var(--color-bg);box-shadow:0 24px 64px rgba(0,0,0,.45)">
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 32px;border-bottom:2px solid var(--color-divider)">
-                <div>
-                  <span style="display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">2-minute assessment</span>
-                  <span style="font-size:24px;font-weight:800;letter-spacing:-.02em">Three questions, one recommendation.</span>
-                </div>
-                <a href="#" data-action="close-assess" aria-label="Close" style="font-size:26px;line-height:1;color:#595959;padding:6px 10px">×</a>
-              </div>
-              <div style="display:grid;grid-template-columns:1.25fr 1fr">
-                <div style="padding:28px 32px 32px;border-right:2px solid var(--color-divider);display:flex;flex-direction:column;gap:26px">
-                  <div>
-                    <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B;margin-bottom:12px">01 — What do you most want to change?</div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-                      <button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aGoal::Lose weight">Lose weight</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aGoal::Build muscle and recover">Build muscle and recover</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aGoal::Energy and focus">Energy and focus</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aGoal::Men's vitality">Men's vitality</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aGoal::Women's hormones">Women's hormones</button>
-                    </div>
-                  </div>
-                  <div>
-                    <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B;margin-bottom:12px">02 — Where are you right now?</div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-                      <button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aStage::Just getting started">Just getting started</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aStage::Training consistently">Training consistently</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aStage::Stuck at a plateau">Stuck at a plateau</button>
-                    </div>
-                  </div>
-                  <div>
-                    <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B;margin-bottom:12px">03 — Have you had bloodwork recently?</div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-                      <button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aLabs::Yes, within a year">Yes, within a year</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aLabs::No">No</button><button type="button" style="padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left" data-opt data-pick="aLabs::Not sure">Not sure</button>
-                    </div>
-                  </div>
-                  <p style="margin:0;font-size:12.5px;line-height:1.6;color:#6B6B6B">This is not a diagnosis and does not determine eligibility. A licensed Apex MD provider decides what is appropriate after reviewing your labs.</p>
-                </div>
-                <div style="background:#101010;color:#F5F2ED;padding:28px 28px 32px;display:flex;flex-direction:column">
-                  <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#FF3B4A"><span data-rec="step">0 of 3 answered</span></span>
-                  <div style="margin-top:22px;padding-top:22px;border-top:2px solid #242424;flex:1">
-                    <span style="display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8C8C8C;margin-bottom:10px"><span data-rec="program"></span></span>
-                    <div style="font-size:30px;font-weight:800;letter-spacing:-.025em;line-height:1.1"><span data-rec="goal">Answer the three questions</span></div>
-                    <p style="margin:14px 0 0;font-size:14.5px;line-height:1.6;color:#D9D9D9"><span data-rec="copy">Your recommendation appears here — then start the intake that begins it.</span></p>
-                  </div>
-                  <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
-                    <a href="https://formdefined.apexmd.com/?categoryId=bloodwork" data-intake="rec" class="btn btn-primary" style="min-height:52px;font-size:16px;justify-content:flex-start;padding:0 20px">Claim your Defined offer</a>
-                    <a href="weight-loss.html" data-rec="page" hidden style="font-size:14.5px;font-weight:700;color:#FF3B4A;align-self:flex-start">See the full program →</a>
-                    <a href="#" data-action="close-assess" style="font-size:13px;color:#8C8C8C;align-self:flex-start">Back to the page</a>
-                  </div>
-                </div>
+      <div class="aq-scrim">
+        <div class="aq-panel">
+          <img class="aq-bg" src="img/df360/hero-run.webp?v=16bed509" alt="" aria-hidden="true" decoding="async">
+          <span class="aq-veil"></span>
+          <div class="aq-head">
+            <div>
+              <span class="aq-eyebrow">2-minute assessment</span>
+              <span class="aq-step-of" data-rec="step">1 of 3</span>
+            </div>
+            <a href="#" data-action="close-assess" class="aq-close" aria-label="Close">&times;</a>
+          </div>
+          <div class="aq-meter"><i data-aq="bar"></i></div>
+          <div class="aq-body">
+          <div class="aq-step" data-step="1" hidden>
+            <span class="aq-count">01 / 03</span>
+            <h3 class="aq-q">What do you most want to change?</h3>
+            <div class="aq-opts aq-opts--5"><button type="button" class="aq-opt" data-opt data-pick="aGoal::Lose weight"><i class="aq-tick"></i><span>Lose weight</span></button><button type="button" class="aq-opt" data-opt data-pick="aGoal::Build muscle and recover"><i class="aq-tick"></i><span>Build muscle and recover</span></button><button type="button" class="aq-opt" data-opt data-pick="aGoal::Energy and focus"><i class="aq-tick"></i><span>Energy and focus</span></button><button type="button" class="aq-opt" data-opt data-pick="aGoal::Men's vitality"><i class="aq-tick"></i><span>Men's vitality</span></button><button type="button" class="aq-opt" data-opt data-pick="aGoal::Women's hormones"><i class="aq-tick"></i><span>Women's hormones</span></button></div>
+          </div>
+          <div class="aq-step" data-step="2" hidden>
+            <span class="aq-count">02 / 03</span>
+            <h3 class="aq-q">Where are you right now?</h3>
+            <div class="aq-opts aq-opts--3"><button type="button" class="aq-opt" data-opt data-pick="aStage::Just getting started"><i class="aq-tick"></i><span>Just getting started</span></button><button type="button" class="aq-opt" data-opt data-pick="aStage::Training consistently"><i class="aq-tick"></i><span>Training consistently</span></button><button type="button" class="aq-opt" data-opt data-pick="aStage::Stuck at a plateau"><i class="aq-tick"></i><span>Stuck at a plateau</span></button></div>
+          </div>
+          <div class="aq-step" data-step="3" hidden>
+            <span class="aq-count">03 / 03</span>
+            <h3 class="aq-q">Have you had bloodwork recently?</h3>
+            <div class="aq-opts aq-opts--3"><button type="button" class="aq-opt" data-opt data-pick="aLabs::Yes, within a year"><i class="aq-tick"></i><span>Yes, within a year</span></button><button type="button" class="aq-opt" data-opt data-pick="aLabs::No"><i class="aq-tick"></i><span>No</span></button><button type="button" class="aq-opt" data-opt data-pick="aLabs::Not sure"><i class="aq-tick"></i><span>Not sure</span></button></div>
+          </div>
+          <div class="aq-step aq-result" data-step="4" hidden>
+            <span class="aq-count">Your protocol</span>
+            <div class="aq-card">
+              <span class="aq-card-prog" data-rec="program"></span>
+              <h3 class="aq-card-goal" data-rec="goal"></h3>
+              <p class="aq-card-copy" data-rec="copy"></p>
+              <dl class="aq-matched">
+                <div><dt>Goal</dt><dd data-rec="a1">&mdash;</dd></div>
+                <div><dt>Stage</dt><dd data-rec="a2">&mdash;</dd></div>
+                <div><dt>Labs</dt><dd data-rec="a3">&mdash;</dd></div>
+              </dl>
+              <div class="aq-cta">
+                <a href="https://formdefined.apexmd.com/?categoryId=bloodwork" data-intake="rec" class="btn btn-primary aq-go">Claim your Defined offer</a>
+                <a href="weight-loss.html" data-rec="page" class="aq-more" hidden>See the full program &rarr;</a>
               </div>
             </div>
           </div>
+          </div>
+          <div class="aq-foot">
+            <a href="#" data-action="aq-back" class="aq-back" hidden>&larr; Back</a>
+            <p class="aq-legal">Not a diagnosis and does not determine eligibility. A licensed Apex MD provider decides what is appropriate after reviewing your labs.</p>
+          </div>
         </div>
+      </div>
+    </div>
       </div>
 <div class="page page--mobile">
         <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:#fff;border-bottom:2px solid var(--color-divider)">

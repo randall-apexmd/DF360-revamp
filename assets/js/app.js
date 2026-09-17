@@ -34,7 +34,7 @@
   // (EOS-PHX-014 etc), and DF360's intake takes no club param.
   var CLUBS = [];
 
-  var state = { club: null, aGoal: null, aStage: null, aLabs: null };
+  var state = { club: null, aGoal: null, aStage: null, aLabs: null, step: 1 };
 
   function byCode(code) {
     for (var i = 0; i < CLUBS.length; i++) if (CLUBS[i].code === code) return CLUBS[i];
@@ -101,21 +101,52 @@
     return { program: 'HRT', goal: "Women's Hormones", copy: 'Hormone therapy for sleep, mood and the changes of perimenopause and beyond.', category: 'hrt', page: 'hormones.html' };
   }
 
-  var ON  = 'padding:13px 14px;border:2px solid var(--color-accent);background:var(--color-accent-100);font-size:14.5px;font-weight:700;cursor:pointer;text-align:left';
-  var OFF = 'padding:13px 14px;border:2px solid var(--color-divider);background:var(--color-bg);font-size:14.5px;font-weight:500;cursor:pointer;text-align:left';
+  /* The quiz is styled in site.css (.aq-*). Selection is a class, not an
+     inline style, so the stylesheet stays the single source of truth. */
+  var STEP_KEY = { 1: 'aGoal', 2: 'aStage', 3: 'aLabs' };
+  var LAST = 4;   /* step 4 is the protocol card */
+
+  function answeredCount() {
+    return [state.aGoal, state.aStage, state.aLabs].filter(Boolean).length;
+  }
+
+  function goStep(n) {
+    state.step = Math.max(1, Math.min(LAST, n));
+    syncAssessment();
+  }
 
   function syncAssessment() {
     $all('[data-pick]').forEach(function (el) {
       var parts = el.getAttribute('data-pick').split('::');
-      el.setAttribute('style', state[parts[0]] === parts[1] ? ON : OFF);
-      el.setAttribute('aria-pressed', state[parts[0]] === parts[1] ? 'true' : 'false');
+      var on = state[parts[0]] === parts[1];
+      el.classList.toggle('is-on', on);
+      el.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
+
+    /* one question on screen at a time */
+    $all('[data-step]').forEach(function (el) {
+      el.hidden = Number(el.getAttribute('data-step')) !== state.step;
+    });
+
     var rec = recommend();
-    var answered = [state.aGoal, state.aStage, state.aLabs].filter(Boolean).length;
+    var answered = answeredCount();
+
+    /* the meter fills on progress, not on which step you happen to be on,
+       so stepping back does not make it look like work was lost */
+    $all('[data-aq="bar"]').forEach(function (el) {
+      el.style.width = (answered / 3 * 100) + '%';
+    });
+
     $all('[data-rec="goal"]').forEach(function (el) { el.textContent = rec.goal; });
     $all('[data-rec="program"]').forEach(function (el) { el.textContent = rec.program; });
     $all('[data-rec="copy"]').forEach(function (el) { el.textContent = rec.copy; });
-    $all('[data-rec="step"]').forEach(function (el) { el.textContent = answered + ' of 3 answered'; });
+    $all('[data-rec="a1"]').forEach(function (el) { el.textContent = state.aGoal  || '\u2014'; });
+    $all('[data-rec="a2"]').forEach(function (el) { el.textContent = state.aStage || '\u2014'; });
+    $all('[data-rec="a3"]').forEach(function (el) { el.textContent = state.aLabs  || '\u2014'; });
+    $all('[data-rec="step"]').forEach(function (el) {
+      el.textContent = state.step >= LAST ? 'Matched to your answers' : state.step + ' of 3';
+    });
+    $all('[data-action="aq-back"]').forEach(function (el) { el.hidden = state.step === 1; });
     $all('[data-rec="page"]').forEach(function (el) {
       if (rec.page) { el.setAttribute('href', rec.page); el.hidden = false; } else { el.hidden = true; }
     });
@@ -139,14 +170,22 @@
     var pick = e.target.closest ? e.target.closest('[data-pick]') : null;
     if (pick) {
       var parts = pick.getAttribute('data-pick').split('::');
-      state[parts[0]] = state[parts[0]] === parts[1] ? null : parts[1];
+      var was = state[parts[0]];
+      state[parts[0]] = was === parts[1] ? null : parts[1];
       syncAssessment();
+      /* advance on a fresh answer, never on an un-pick, and give the tick a
+         beat to register so the step does not vanish under the cursor */
+      if (state[parts[0]] && state.step < LAST) {
+        var from = state.step;
+        window.setTimeout(function () { if (state.step === from) goStep(from + 1); }, 260);
+      }
       return;
     }
     var act = e.target.closest ? e.target.closest('[data-action]') : null;
     if (!act) return;
     var a = act.getAttribute('data-action');
-    if (a === 'open-assess')  { e.preventDefault(); toggle('assess-modal', true); syncAssessment(); }
+    if (a === 'open-assess')  { e.preventDefault(); state.step = 1; toggle('assess-modal', true); syncAssessment(); }
+    if (a === 'aq-back')      { e.preventDefault(); goStep(state.step - 1); }
     if (a === 'close-assess') { e.preventDefault(); toggle('assess-modal', false); }
     if (a === 'open-sheet')   { e.preventDefault(); toggle('club-sheet', true); }
     if (a === 'close-sheet')  { e.preventDefault(); toggle('club-sheet', false); }
