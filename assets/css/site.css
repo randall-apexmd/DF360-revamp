@@ -248,3 +248,18 @@ a:hover { color: var(--color-accent-600); }
   .hp-offerbar strong{font-weight:800}
   .hp-offerbar__sep{opacity:.55}
   @media (max-width:720px){ .hp-offerbar{font-size:11.5px;padding:9px 14px;gap:4px 10px} }
+
+
+/* — homepage hero: the copy stays left of the runners —
+   The (min-width:1441px) rule above pushes every direct child of the page
+   into the centred 1440 column, which on a 2000px screen starts the hero
+   copy at 408px — straight on top of the two runners. The runners sit at
+   42-62% of the photo and cannot be moved with object-position once the
+   image is wide enough to stop being cropped horizontally, so the copy is
+   what has to move. Pin the full-bleed hero to a plain 64px left gutter. */
+@media (min-width: 1441px) {
+  .page--desktop > div.hp-hero {
+    padding-left:  64px !important;
+    padding-right: 0    !important;
+  }
+}
