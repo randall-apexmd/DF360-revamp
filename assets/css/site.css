@@ -438,3 +438,16 @@ a:hover { color: var(--color-accent-600); }
    Set by toggle() in app.js. */
 .overlay-open #chatbot-icon,
 .overlay-open #chatbot-container { display: none !important; }
+
+/* — and it clears the sticky member-offer bar —
+   On mobile that bar is position:sticky;bottom:0 and 77px tall, so the
+   launcher (fixed at bottom:20px, 69px square) sat on the right end of its
+   "Claim your offer" button. Lift the launcher above it. The raised position
+   is the default so that a browser without :has() errs on the safe side;
+   when the bar is not showing, it drops back to the corner. */
+@media (max-width: 1023px) {
+  #chatbot-icon { bottom: calc(96px + env(safe-area-inset-bottom)) !important; }
+  html:not(:has(.page--mobile > .is-in)) #chatbot-icon {
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+  }
+}
