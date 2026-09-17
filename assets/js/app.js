@@ -159,6 +159,15 @@
     if (!el) return;
     if (open) el.removeAttribute('hidden'); else el.setAttribute('hidden', '');
     document.body.style.overflow = open ? 'hidden' : '';
+    /* The Replify launcher is fixed at z-index 999 and its panel at 99999,
+       both above this overlay's 60, so the bubble sat on top of the quiz --
+       on a short phone, right over the CTA. Flag the document while ANY
+       overlay is open and let site.css take the widget out. Checked against
+       the live DOM rather than assumed, so closing one overlay while another
+       is still open does not bring it back. */
+    document.documentElement.classList.toggle(
+      'overlay-open', !!document.querySelector('.overlay:not([hidden])')
+    );
     if (open) {
       var focusable = el.querySelector('button, [href], select, input');
       if (focusable) focusable.focus();

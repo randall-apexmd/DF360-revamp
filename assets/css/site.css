@@ -431,3 +431,10 @@ a:hover { color: var(--color-accent-600); }
 @media (prefers-reduced-motion: reduce) {
   .aq-meter i { transition: none; }
 }
+
+/* — the chat widget steps aside for an overlay —
+   #chatbot-icon / #chatbot-container are injected by the Replify embed
+   (chatbot.js) and carry inline styles, so this needs !important to win.
+   Set by toggle() in app.js. */
+.overlay-open #chatbot-icon,
+.overlay-open #chatbot-container { display: none !important; }
